@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimension table with data of customers"
+    materialized: table
+    schema: marts
+    tags: 
+      - dimension
+    unique_key: personid
+    columns:
+      - name: persontype
+        description: "Type of person: SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact."
+        tests:
+          - unique
+          - not_null
+      - name: completename
+        description: "Complete name of the person, with suffix, middle name and title."
+        tests:
+          - not_null
+      - name: emailaddress
+        description: "Email address of the person"
+      - name: phones
+        description: "List of phone numbers of the person"
+      - name: job
+        description: "When this person is a contact in a customer store, this field gives the job position of the person"
+      - name: storename
+        description: "When this person is a contact in a customer store, this field gives the name of the store where the person works"
+      - name: title
+        description: "Courtesy title of the person (Ms., Mr., etc)"
+      - name: firstname
+        description: "First name of the person"
+      - name: middlename
+        description: "Middle name of the person"
+      - name: lastname
+        description: "Last name of the person"
+      - name: suffix
+        description: "Suffix of the person (for example, Jr. or Sr.)"
+      - name: emailpromotion
+        description: "Indicates elegibility for email promotions - 0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners. Initialized at 0."

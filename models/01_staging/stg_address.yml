@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_address
+    description: "Staging table for address data"
+    columns:
+      - name: addressid
+        description: "Unique identifier for the address."
+        tests:
+          - unique
+          - not_null
+      - name: spatiallocation
+        description: "Spatial location data."
+      - name: locationname
+        description: "Concatenated string representing the location name including city, state, and country."
+    materialized: view

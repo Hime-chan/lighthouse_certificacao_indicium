@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_salesorderheader
+    description: "Staging table for sales order data"
+    columns:
+      - name: orderdate
+        description: "Date of the order."
+        tests:
+          - not_null
+      - name: personcustomerid
+        description: "Customer id. FK to view stg_personperson."    
+      - name: storeid
+        description: "Store identifier associated with the order. It is null if the order is online." 
+      - name: territoryid
+        description: "Territory identifier associated with the order."
+        tests:
+          - not_null
+      - name: salesorderid
+        description: "Unique identifier for the sales order."
+        tests:
+          - not_null
+          - unique
+      - name: billtoaddressid
+        description: "Billing address identifier for the order. FK with address table."
+        tests:
+          - not_null
+      - name: shiptoaddressid
+        description: "Shipping address identifier for the order. FK with address table."
+        tests:
+          - not_null
+      - name: salespersonid
+        description: "Salesperson identifier associated with the order. Identifies the seller who created the sales order. FK with stg_salesperson table. Is null iff the order is online."
+      - name: productstotal
+        description: "Total cost of the products in the order."
+        tests:
+          - not_null
+      - name: completetotal
+        description: "Total cost of the complete order."
+        tests:
+          - not_null
+    materialized: view

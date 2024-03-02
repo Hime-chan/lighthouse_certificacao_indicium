@@ -1,0 +1,88 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Dimension table with data of products"
+    columns:
+      - name: productid
+        description: "Unique identifier for the product."
+        tests:
+          - unique
+          - not_null
+        meta:
+          dbt_utils:
+            type: integer
+            id: true
+            primary_key: true
+            field: sk_productid
+      - name: completename
+        description: "Complete name of the product."
+      - name: productname
+        description: "Name of the product with details (color, size, etc)."
+      - name: makeflag
+        description: "Indicates whether the product is purchased (0) or manufactured (1)."
+        meta:
+          dbt_utils:
+            type: integer
+      - name: finishedgoodsflag
+        description: "Indicates whether the product is a salable item(1) or not (0)."
+        meta:
+          dbt_utils:
+            type: integer
+      - name: safetystocklevel
+        description: "Minimum inventory quantity for the product."
+        meta:
+          dbt_utils:
+            type: integer
+      - name: reorderpoint
+        description: "Quantity for stock shortage alert (less than safety)."
+        meta:
+          dbt_utils:
+            type: integer
+      - name: standardcost
+        description: "Standard cost of the product."
+        meta:
+          dbt_utils:
+            type: numeric
+      - name: listprice
+        description: "Current selling price of the product."
+        meta:
+          dbt_utils:
+            type: numeric
+      - name: productsize
+        description: "Size of the product: S,M or L, or '-' for products without size "
+      - name: productweight
+        description: "Weight of the product."
+        meta:
+          dbt_utils:
+            type: numeric
+      - name: daystomanufacture
+        description: "Number of days to manufacture the product."
+        meta:
+          dbt_utils:
+            type: integer
+      - name: productline
+        description: "Product line: R (road), M (mountain), T (touring), S (standard)."
+      - name: productclass
+        description: "Product class: High, Medium, Low."
+      - name: productstyle
+        description: "Product style: Women, Man, Universal."
+      - name: categoriesgroups
+        description: "List of the product categories groups."
+      - name: categories
+        description: "List of names of product categories."
+    meta:
+      dbt_utils:
+        table_info:
+          source:
+            name: "stg_product"
+            description: "Staging table for product data"
+          join:
+            - name: "stg_productcategory"
+              description: "Staging table for product categories"
+              columns:
+                - name: "productcategoryid"
+                  description: "Identifier for the product subcategory."
+                  tests:
+                    - unique
+                    - not_null

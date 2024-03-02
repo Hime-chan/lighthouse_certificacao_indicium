@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: mart_agg_salesterritorysalesperson
+    description: "Aggregate table for sales by territory and by salesperson."
+    columns:
+      - name: territoryid
+        description: "Unique identifier for the territory."
+        tests:
+          - not_null
+      - name: salespersonid
+        description: "Unique identifier for the salesperson."
+        tests:
+          - not_null
+      - name: orderquantity
+        description: "Total quantity of orders placed by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: totalproductquantity
+        description: "Total quantity of products sold by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: totalpriceproducts
+        description: "Sum of price of products sold by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: totalpricecomplete
+        description: "Sum of complete price (with tax and ship) of orders placed by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: lastorder
+        description: "Date of the last order placed by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: firstorder
+        description: "Date of the first order placed by this salesperson and at this territory."
+        tests:
+          - not_null
+      - name: customerquantity
+        description: "Total number of unique customers served by this salesperson and at this territory.."
+        tests:
+          - not_null
+      - name: territoryname
+        description: "Name of the territory."
+        tests:
+          - not_null
+      - name: countryregioncode
+        description: "ISO standard country or region code."
+        tests:
+          - not_null
+      - name: regiongroup
+        description: "Geographic area to which the sales territory belong."
+        tests:
+          - not_null
+      - name: salesytd
+        description: "Sales of current year for the territory."
+        tests:
+          - not_null
+      - name: saleslastyear
+        description: "Sales of last year for the territory."
+        tests:
+          - not_null
+      - name: costytd
+        description: "Business cost of the current year for the territory."
+        tests:
+          - not_null
+      - name: costlastyear
+        description: "Business cost of the last year for the territory."
+        tests:
+          - not_null
+      - name: salesquota
+        description: "Sales quota assigned to the salesperson."
+        tests:
+          - not_null
+      - name: bonusIfquota
+        description: "Bonus given to the salesperson if quota is achieved."
+        tests:
+          - not_null
+      - name: comissionpersalepercent
+        description: "Commission percentage per sale for the salesperson."
+        tests:
+          - not_null
+      - name: salesvaluelastyear
+        description: "Sales value achieved by the salesperson in the last year."
+        tests:
+          - not_null
+      - name: salesvalueacurrentyear
+        description: "Sales value achieved by the salesperson in the current year."
+        tests:
+          - not_null
+    materialized: table
+    schema: marts

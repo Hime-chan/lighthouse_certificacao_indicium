@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_salesorderreason
+    description: "Staging table for sales order reason data"
+    columns:
+      - name: salesorderid
+        description: "Unique identifier for the sales order. FK to stg_salesorderheader table."
+        tests:
+          - not_null
+      - name: reasonsnames
+        description: "Name of the sales order reasons."
+      - name: reasonstypes
+        description: "Type (group names) of the sales order reasons."
+    materialized: view

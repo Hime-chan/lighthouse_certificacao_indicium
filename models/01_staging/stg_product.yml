@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_product
+    description: "Staging table for product data"
+    columns:
+      - name: productid
+        description: "Unique identifier for the product."
+        tests:
+          - unique
+          - not_null
+      - name: completename
+        description: "Complete name of the product."
+      - name: productname
+        description: "Name of the product with details (color, size, etc)."
+      - name: makeflag
+        description: "Indicates whether the product is purchased (0) or manufactured (1)."
+      - name: finishedgoodsflag
+        description: "Indicates whether the product is a salable item(1) or not (0)."
+      - name: safetystocklevel
+        description: "Minimum inventory quantity for the product."
+      - name: reorderpoint
+        description: "Quantity for stock shortage alert (less than safety)."
+      - name: standardcost
+        description: "Standard cost of the product."
+      - name: listprice
+        description: "Current selling price of the product."
+      - name: productsize
+        description: "Size of the product: S,M or L, or '-' for products without size "
+      - name: productweight
+        description: "Weight of the product."
+      - name: daystomanufacture
+        description: "Number of days to manufacture the product."
+      - name: productline
+        description: "Product line: R (road), M (mountain), T (touring), S (standard)."
+      - name: productclass
+        description: "Product class: High, Medium, Low."
+      - name: productstyle
+        description: "Product style: Women, Man, Universal."
+      - name: productcategoryid
+        description: "Identifier for the product subcategory. PK with the table productcategory"
+    materialized: view

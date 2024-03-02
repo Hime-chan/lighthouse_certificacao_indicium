@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: mart_DS_productstoresales
+    description: "Combined table for sales data for data science predictions."
+    columns:
+      - name: productsalesId
+        description: "Unique identifier for the product sale."
+        tests:
+          - unique
+          - not_null
+      - name: productid
+        description: "Unique identifier for the product."
+        tests:
+          - not_null
+      - name: productcompletename
+        description: "Complete name of the product."
+      - name: productname
+        description: "Name of the product."
+      - name: productmakeflag
+        description: "Indicates whether the product is purchased (0) or manufactured (1)."
+      - name: productfinishedgoodsflag
+        description: "Indicates whether the product is a salable item(1) or not (0)."
+      - name: productsafetystocklevel
+        description: "Minimum inventory quantity for the product."
+      - name: productreorderpoint
+        description: "Quantity for stock shortage alert (less than safety)."
+      - name: productstandardcost
+        description: "Standard cost of the product."
+      - name: productlistprice
+        description: "List price of the product."
+      - name: productsize
+        description: "Size of the product."
+      - name: productweight
+        description: "Weight of the product."
+      - name: productdaystomanufacture
+        description: "Number of days to manufacture the product."
+      - name: productline
+        description: "Product line."
+      - name: productclass
+        description: "Product class."
+      - name: productstyle
+        description: "Product style."
+      - name: productquantity
+        description: "Quantity of the product ordered in this sales order."
+        tests:
+          - not_null
+      - name: productunitprice
+        description: "Unit price of the product in this sales order."
+        tests:
+          - not_null
+      - name: orderdate
+        description: "Date of the order."
+        tests:
+          - not_null
+      - name: storeid
+        description: "Store identifier associated with the order. It is null if the order is online."
+      - name: storename
+        description: "Name of the store associated with the order."
+      - name: AnnualSales
+        description: "Annual sales of the store."
+      - name: AnnualRevenue
+        description: "Annual revenue of the store."
+      - name: BankName
+        description: "Bank name associated with the store."
+      - name: BusinessType
+        description: "Type of business of the store."
+      - name: YearOpened
+        description: "Year the store was opened."
+      - name: Speciality
+        description: "Speciality of the store."
+      - name: SquareFeet
+        description: "Area of the store in square feet."
+      - name: Brands
+        description: "Brands associated with the store."
+      - name: Internet
+        description: "Indicates whether the store has internet access."
+      - name: NumberEmployees
+        description: "Number of employees working in the store."
+      - name: territoryname
+        description: "Name of the territory associated with the order."
+      - name: territorycountryregioncode
+        description: "Country or region code associated with the territory."
+      - name: territoryregiongroup
+        description: "Group associated with the region of the territory."
+      - name: territorysalesytd
+        description: "Sales year to date for the territory."
+      - name: territorysaleslastyear
+        description: "Sales last year for the territory."
+      - name: territorycostytd
+        description: "Cost year to date for the territory."
+      - name: territorycostlastyear
+        description: "Cost last year for the territory."
+      - name: bill_spatiallocation
+        description: "Spatial location of the billing address."
+      - name: bill_locationname
+        description: "Name of the billing location."
+      - name: ship_spatiallocation
+        description: "Spatial location of the shipping address."
+      - name: ship_locationname
+        description: "Name of the shipping location."
+      - name: salespersonid
+        description: "Salesperson identifier associated with the order."
+      - name: salespersoncomission
+        description: "Commission per sale for the salesperson."
+      - name: salespersonbonusifquota
+        description: "Bonus if quota is achieved for the salesperson."
+      - name: salespersonachievequota
+        description: "Indicates whether the salesperson achieved quota."
+      - name: products_total
+        description: "Total cost of the products in the order."
+      - name: complete_total
+        description: "Total cost of the complete order."
+      - name: categoryGroup
+        description: "List of categories groups associated with the product categories."
+      - name: category
+        description: "List of categories from which the product pertences associated with the product."
+    materialized: table

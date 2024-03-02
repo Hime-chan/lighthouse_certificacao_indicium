@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_businessperson
+    description: "Staging table for contacts people within customer stores"
+    columns:
+      - name: personid
+        description: "Unique identifier for the person."
+        tests:
+          - unique
+          - not_null
+      - name: job
+        description: "Job of the person."
+      - name: storename
+        description: "Name of the store associated with the person."
+    materialized: view

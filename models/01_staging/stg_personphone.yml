@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_personphone
+    description: "Staging table for person phone data"
+    columns:
+      - name: personid
+        description: "Business entity identifier for the person."
+        tests:
+          - unique
+          - not_null
+      - name: phones
+        description: "List of phone numbers associated with the person."
+    materialized: view

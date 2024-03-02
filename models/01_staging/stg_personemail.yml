@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_personemail
+    description: "Staging table for person email data"
+    columns:
+      - name: personid
+        description: "Business entity identifier for the person."
+        tests:
+          - unique
+          - not_null
+      - name: emailaddress
+        description: "Email address of the person."
+    materialized: view

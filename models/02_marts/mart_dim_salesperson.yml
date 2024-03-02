@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_dim_salesperson
+    description: "Dimension table for salesperson data in the data warehouse."
+    columns:
+      - name: salespersonid
+        description: "Unique identifier for the salesperson."
+        tests:
+          - not_null
+      - name: salesquota
+        description: "Sales quota for the salesperson (projected sell for year)."
+      - name: bonusIfquota
+        description: "Bonus for the salesperson if quota is met."
+      - name: comissionpersalepercent
+        description: "Commission percentage per sale for the salesperson."
+      - name: salesvaluelastyear
+        description: "Sales total for sales made by the salesperson in the last year."
+      - name: salesvalueacurrentyear
+        description: "Sales total for sales made by the salesperson in this current year."
+    materialized: table
+    schema: marts

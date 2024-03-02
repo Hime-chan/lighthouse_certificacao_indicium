@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: mart_fact_salesproduct
+    description: "Fato para vendas e produtos de cada venda."
+    columns:
+      - name: salesproductid
+        description: "Identificador único para cada registro dessa tabela. (PK)"
+        tests:
+          - not_null
+          - unique
+      - name: salesorderid
+        description: "Identificador único para a venda. FK para a tabela mart_fact_salesorder."
+        tests:
+          - not_null
+      - name: productid
+        description: "Identificador único para o produto. FK para a tabela mart_dim_product."
+        tests:
+          - not_null
+      - name: productquantity
+        description: "Quantidade do produto vendido."
+        tests:
+          - not_null
+      - name: productunitprice
+        description: "Preço unitário do produto."
+        tests:
+          - not_null
+    materialized: table

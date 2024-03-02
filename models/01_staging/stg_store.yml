@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_store
+    description: "Staging table for store data"
+    columns:
+      - name: storename
+        description: "Name of the store."
+      - name: storeid
+        description: "Unique identifier for the store."
+        tests:
+          - not_null
+          - unique
+      - name: AnnualSales
+        description: "Annual sales of the store."
+      - name: AnnualRevenue
+        description: "Annual revenue of the store."
+      - name: BankName
+        description: "Bank name associated with the store."
+      - name: BusinessType
+        description: "Type of business of the store."
+      - name: YearOpened
+        description: "Year the store was opened."
+      - name: Speciality
+        description: "Speciality of the store."
+      - name: SquareFeet
+        description: "Square feet of the store."
+      - name: Brands
+        description: "Brands quantity associated with the store."
+      - name: Internet
+        description: "Internet type of the store."
+      - name: NumberEmployees
+        description: "Number of employees at the store."
+    materialized: view

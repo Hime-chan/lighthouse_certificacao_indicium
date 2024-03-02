@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_productcategory
+    description: "Staging table for product category data"
+    columns:
+      - name: productcategoryid
+        description: "Unique identifier for the product category."
+        tests:
+          - unique
+          - not_null
+      - name: categoryGroup
+        description: "Name of the product category group."
+      - name: category
+        description: "Name of the product category."
+    materialized: view

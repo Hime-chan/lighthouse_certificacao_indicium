@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: mart_fact_salesorder
+    description: "Table fact of sales order data"
+    columns:
+      - name: salesorderid
+        description: "Unique identifier for the sales order."
+        tests:
+          - unique
+          - not_null
+      - name: orderdate
+        description: "Date of the order."
+        tests:
+          - not_null
+      - name: storeid
+        description: "Store identifier associated with the order. It is null iff the order is online. FK to table mart_dim_store."
+      - name: salespersonid
+        description: "Salesperson identifier associated with the order. It is null iff the order is online. FK to table mart_dim_salesperson."
+      - name: bill_spatiallocation
+        description: "Spatial location of the billing address."
+      - name: bill_locationname
+        description: "Name of the billing location."
+      - name: ship_spatiallocation
+        description: "Spatial location of the shipping address."
+      - name: ship_locationname
+        description: "Name of the shipping location."
+      - name: productstotal
+        description: "Total cost of the products in the order."
+      - name: completetotal
+        description: "Total cost of the complete order (with tax, shipping, etc)."
+      - name: reason
+        description: "Reason for the sales order."
+      - name: totalproductquantity
+        description: "Total quantity of products in the order."
+        tests:
+          - not_null
+      - name: customerid
+        description: "Customer identifier associated with the order. FK to table mart_dim_customer"
+    materialized: table

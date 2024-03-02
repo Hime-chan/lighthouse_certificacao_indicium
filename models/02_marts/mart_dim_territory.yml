@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: mart_dim_territory
+    description: "Dimension table for territory."
+    columns:
+      - name: territoryid
+        description: "Unique identifier for the territory. PK of this table."
+        tests:
+          - unique
+          - not_null
+      - name: territoryname
+        description: "Sales territory description."
+      - name: countryregioncode
+        description: "ISO standard country or region code."
+      - name: regiongroup
+        description: "Geographic area to which the sales territory belong."
+      - name: salesytd
+        description: "Sales year to date for the territory."
+        tests:
+          - not_null
+      - name: saleslastyear
+        description: "Sales last year for the territory."
+        tests:
+          - not_null
+      - name: costytd
+        description: "Bussiness cost year to date for the territory."
+        tests:
+          - not_null
+      - name: costlastyear
+        description: "Bussiness cost last year for the territory."
+        tests:
+          - not_null
+    materialized: table
+    schema: marts

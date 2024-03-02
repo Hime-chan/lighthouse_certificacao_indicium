@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_salesorderdetail
+    description: "Staging table for sales order detail data where granularity is product by sales order."
+    columns:
+      - name: salesorderdetailid
+        description: "Unique identifier for the salesorderdetail (PK of this table)."
+        tests:
+          - not_null
+          - unique
+      - name: salesorderid
+        description: "Unique identifier for the salesorder (FK with the view stg_salesorderheader)."
+        tests:
+          - not_null
+      - name: productID
+        description: "Unique identifier for the product."
+        tests:
+          - not_null
+      - name: Orderqty
+        description: "Quantity of the product ordered in this sales order."
+        tests:
+          - not_null
+      - name: productunitprice
+        description: "Unit price of the product in this sales order."
+        tests:
+          - not_null
+    materialized: view
