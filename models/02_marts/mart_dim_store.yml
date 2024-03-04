@@ -21,8 +21,8 @@ models:
         description: "Type of business of the store."
       - name: YearOpened
         description: "Year the store was opened."
-      - name: Speciality
-        description: "Speciality of the store."
+      - name: Specialty
+        description: "Specialty of the store."
       - name: SquareFeet
         description: "Square feet of the store."
       - name: Brands

@@ -6,7 +6,7 @@ with mart_dim_store as (
     , BankName
     , BusinessType
     , YearOpened
-    , Speciality
+    , Specialty
     , SquareFeet
     , Brands
     , Internet

@@ -9,7 +9,7 @@ with stg_store as (
     , regexp_extract(demographics,r'<BankName>(.+?)</BankName>') as BankName
     , regexp_extract(demographics,r'<BusinessType>(.+?)</BusinessType>') as BusinessType
     , cast(regexp_extract(demographics,r'<YearOpened>(.+?)</YearOpened>') as int) as YearOpened
-    , regexp_extract(demographics,r'<Speciality>(.+?)</Speciality>') as Speciality
+    , regexp_extract(demographics,r'<Specialty>(.+?)</Specialty>') as Specialty
     , cast(regexp_extract(demographics,r'<SquareFeet>(.+?)</SquareFeet>') as decimal) as SquareFeet
     , regexp_extract(demographics,r'<Brands>(.+?)</Brands>') as Brands
     , regexp_extract(demographics,r'<Internet>(.+?)</Internet>') as Internet
