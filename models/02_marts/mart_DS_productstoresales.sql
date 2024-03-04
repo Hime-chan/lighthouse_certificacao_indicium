@@ -34,7 +34,7 @@ with categoryGroup as (
         , st.BankName
         , st.BusinessType
         , st.YearOpened
-        , st.Speciality
+        , st.Specialty
         , st.SquareFeet
         , st.Brands
         , st.Internet
