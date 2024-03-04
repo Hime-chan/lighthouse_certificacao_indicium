@@ -46,10 +46,8 @@ with categoryGroup as (
         , te.saleslastyear as territorysaleslastyear
         , te.costytd as territorycostytd
         , te.costlastyear as territorycostlastyear    
-        , bill_a.spatiallocation as bill_spatiallocation
-        , bill_a.locationname as bill_locationname
-        , ship_a.spatiallocation as ship_spatiallocation
-        , ship_a.locationname as ship_locationname
+        , store_a.spatiallocation as store_spatiallocation
+        , store_a.locationname as store_locationname
         , soh.salespersonid
         , sp.comissionpersalepercent as salespersoncomission
         , sp.bonusIfquota as salespersonbonusifquota
@@ -69,10 +67,8 @@ with categoryGroup as (
         on st.storeid=soh.storeid
     left join {{ ref('stg_territory') }} te
         on te.territoryid=soh.territoryid
-    left join {{ ref('stg_address') }} bill_a
-        on bill_a.addressid=soh.billtoaddressid
-    left join {{ ref('stg_address') }} ship_a
-        on ship_a.addressid=soh.shiptoaddressid
+    left join {{ ref('stg_address') }} store_a
+        on store_a.addressid=st.addressid
     left join {{ ref('stg_salesperson') }} sp
         on sp.salespersonid=soh.salespersonid
 )
